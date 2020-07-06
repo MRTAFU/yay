@@ -16,4 +16,17 @@
 # また、 `unknown_number` メソッドは、一度しか呼び出すことはできません
 
 class LearnBlock
+  def ext_sum(first, second, &blk)
+    sum = first + second
+    blk ? blk.call(sum) : sum
+  end
+
+  def search_unknown(arr, number)
+    misterious = unknown_number
+    nums = []
+    arr.each do |item|
+      nums << item  if (item + number + misterious) % 5 == 0
+    end
+    nums
+  end
 end
